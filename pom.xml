@@ -167,6 +167,19 @@
       </build>
     </profile>
   </profiles>
+    <distributionManagement>
+    <snapshotRepository>
+      <id>creatis-snapshots</id>
+      <name>Internal Snapshots</name>
+	  <url>http://vip.creatis.insa-lyon.fr:9007/nexus/content/repositories/snapshots</url>
+    </snapshotRepository>
+           
+    <repository>
+      <id>creatis-releases</id>
+      <name>Creatis Insa Lyon repository [creatis]</name>
+      <url>http://vip.creatis.insa-lyon.fr:9007/nexus/content/repositories/releases</url>
+    </repository>
+  </distributionManagement>
 
   <dependencies>
     <dependency>
