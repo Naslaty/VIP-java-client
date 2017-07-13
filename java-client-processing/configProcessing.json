@@ -1,0 +1,10 @@
+{
+    "invokerPackage": "fr.insalyon.creatis.vip.client.processing",
+    "modelPackage":"fr.insalyon.creatis.vip.client.processing.model",
+    "apiPackage":"fr.insalyon.creatis.vip.client.processing.api",
+    "groupId":"fr.insalyon.creatis.vip",
+    "artifactId":"java-client-processing",
+    "artifactVersion":"0.3",
+    "library":"okhttp-gson"
+}
+

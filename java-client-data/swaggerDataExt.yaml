@@ -1,0 +1,168 @@
+swagger: '2.0'
+info:
+  version: 0.2.1.1
+  title: Data extension of CARMIN
+  description: Data requests
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  apiKey:
+    type: apiKey
+    name: apiKey
+    in: header
+    description: An API key that must be provided by the platform.
+security:
+  - apiKey: []
+paths:
+  /path:
+    parameters:
+      - name: uri
+        in: query
+        required: true
+        type: string
+        format: ascii
+    get:
+      description: get the specified path if it exists
+      operationId: getPath
+      responses:
+        '200':
+          description: successful response
+          schema:
+            $ref: '#/definitions/Path'
+        default:
+          $ref: '#/responses/GenericError'
+    delete:
+      description: delete the specified path
+      operationId: deletePath
+      responses:
+        '200':
+          description: successful response
+        default:
+          $ref: '#/responses/GenericError'
+          
+  /path/exists:
+    parameters:
+      - name: uri
+        in: query
+        required: true
+        type: string
+        format: ascii
+    get:
+      description: indicates if the specified path exists or not
+      operationId: doesPathExists
+      responses:
+        '200':
+          description: successful response
+          schema:
+            type: boolean
+        default:
+          $ref: '#/responses/GenericError'
+  /path/directory:
+    parameters:
+      - name: uri
+        in: query
+        required: true
+        type: string
+        format: ascii
+    get:
+      description: returns all files and directory contained in the specified path
+      operationId: listDirectory
+      responses:
+        '200':
+          description: successful response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Path'
+        default:
+          $ref: '#/responses/GenericError'
+    post:
+      description: create the specified directory in user space
+      operationId: createPath
+      responses:
+        '200':
+          description: successful response
+          schema:
+            $ref: '#/definitions/Path'
+        default:
+          $ref: '#/responses/GenericError'
+  /path/content:
+    get:
+      description: returns the asked file
+      operationId: downloadFile
+      parameters:
+        - name: uri
+          in: query
+          required: true
+          type: string
+          format: ascii
+      responses:
+        '200':
+          description: successful response
+          schema:
+            type: string
+        default:
+          $ref: '#/responses/GenericError'
+    put:
+      description: returns the uploaded path
+      operationId: uploadFile
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UploadData'
+      responses:
+        '200':
+          description: successfull response
+          schema:
+            $ref: '#/definitions/UploadData'
+        default:
+          $ref: '#/responses/GenericError'
+responses:
+  GenericError:
+    description: An functional or internal error occured processing the request
+    schema:
+      $ref: '#/definitions/ErrorCodeAndMessage'
+definitions:
+  ErrorCodeAndMessage:
+    type: object
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+        format: int64
+      message:
+        type: string
+  UploadData:
+    type: object
+    properties:
+      uri:
+        type: string
+      pathContent:
+        type: string
+  Path:
+    type: object
+    properties:
+      platformURI:
+        type: string
+      lastModificationDate:
+        type: integer
+        format: int64
+      isDirectory:
+        type: boolean
+      exists:
+        type: boolean
+      size:
+        type: integer
+        format: int64
+      executionId:
+        type: string
+      mimeType:
+        type: string 

@@ -1,0 +1,9 @@
+{
+    "invokerPackage": "fr.insalyon.creatis.vip.client.data",
+    "modelPackage":"fr.insalyon.creatis.vip.client.data.model",
+    "apiPackage":"fr.insalyon.creatis.vip.client.data.api",
+    "groupId":"fr.insalyon.creatis.vip",
+    "artifactId":"java-client-data-extension",
+    "artifactVersion":"0.3",
+    "library":"okhttp-gson"
+}

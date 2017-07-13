@@ -1,15 +1,26 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>fr.insalyon.creatis.vip</groupId>
-  <artifactId>java-client-parent</artifactId>
+  <artifactId>java-client-data-extension</artifactId>
+  <packaging>jar</packaging>
+  <name>java-client-data-extension</name>
   <version>0.3</version>
-  <packaging>pom</packaging>
+  <url>https://github.com/swagger-api/swagger-codegen</url>
+  <description>Swagger Java</description>
+  <scm>
+    <connection>scm:git:git@github.com:swagger-api/swagger-codegen.git</connection>
+    <developerConnection>scm:git:git@github.com:swagger-api/swagger-codegen.git</developerConnection>
+    <url>https://github.com/swagger-api/swagger-codegen</url>
+  </scm>
+  <prerequisites>
+    <maven>2.2.0</maven>
+  </prerequisites>
 
-<<<<<<< HEAD
   <licenses>
     <license>
       <name>Unlicense</name>
-      <url>https://opensource.org/licenses/MIT</url>
+      <url>http://unlicense.org</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
@@ -156,27 +167,6 @@
       </build>
     </profile>
   </profiles>
-    <distributionManagement>
-=======
-  <modules>
-  	<module>java-client-processing</module>
-  	<module>java-client-data</module>
-  </modules>
-  <distributionManagement>
->>>>>>> e82d28607bdc8c8bd77817d265abd5e462ff03ce
-    <snapshotRepository>
-      <id>creatis-snapshots</id>
-      <name>Internal Snapshots</name>
-	  <url>http://vip.creatis.insa-lyon.fr:9007/nexus/content/repositories/snapshots</url>
-    </snapshotRepository>
-           
-    <repository>
-      <id>creatis-releases</id>
-      <name>Creatis Insa Lyon repository [creatis]</name>
-      <url>http://vip.creatis.insa-lyon.fr:9007/nexus/content/repositories/releases</url>
-    </repository>
-  </distributionManagement>
-<<<<<<< HEAD
 
   <dependencies>
     <dependency>
@@ -211,6 +201,16 @@
       <version>${junit-version}</version>
       <scope>test</scope>
     </dependency>
+  <dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-api</artifactId>
+	    <version>1.7.25</version>
+	</dependency>
+	<dependency>
+	    <groupId>ch.qos.logback</groupId>
+	    <artifactId>logback-classic</artifactId>
+	    <version>1.2.2</version>
+</dependency>
   </dependencies>
   <properties>
     <java.version>1.7</java.version>
@@ -225,7 +225,3 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 </project>
-=======
-   
-</project>
->>>>>>> e82d28607bdc8c8bd77817d265abd5e462ff03ce
